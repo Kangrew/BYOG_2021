@@ -1,10 +1,13 @@
 extends Sprite
-
-onready var tween : Tween = $Tween;
-onready var arrow : Sprite = $Arrow;
-onready var beats : Node2D = $BeatsLeft;
+class_name Player
 
 enum directions {RIGHT, DOWN, LEFT, UP}
+
+export var player_speed : float = 500;
+export var arrow_min_rot : float = 90.0;
+export var arrow_max_pop_scale : Vector2 = Vector2(1.2, 1.2);
+export var arrow_rot_duration : float = 0.5;
+export var death_particles_path : NodePath;
 
 var is_player_ready = false;
 var current_dir = directions.RIGHT;
@@ -13,11 +16,10 @@ var is_frozen = true;
 var beats_left = 4
 var die_aim_duration : float = 0.5;
 
-export var player_speed : float = 500;
-
-export var arrow_min_rot : float = 90.0;
-export var arrow_max_pop_scale : Vector2 = Vector2(1.2, 1.2);
-export var arrow_rot_duration : float = 0.5;
+onready var death_particles : CPUParticles2D = get_node(death_particles_path);
+onready var tween : Tween = $Tween;
+onready var arrow : Sprite = $Arrow;
+onready var beats : Node2D = $BeatsLeft;
 
 func _ready():
 	change_dir();
@@ -85,5 +87,8 @@ func push() -> void:
 		direction_vector = Vector2(0.0, -1.0);
 
 func die() -> void:
+	death_particles.global_position = global_position;
+	death_particles.emitting = true;
 	tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, die_aim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT);
 	direction_vector = Vector2.ZERO;
+	tween.start();

@@ -18,7 +18,7 @@ func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.is_in_group("Player"):
 		tween.stop_all();
 		keySprite.scale = Vector2(0.7,0.7);
-		unlockAllLock();
+		toggleLock();
 
 func _on_Key_area_shape_exited(area_id, area, area_shape, local_shape):
 	if area.is_in_group("Player"):
@@ -34,10 +34,10 @@ func _on_Tween_tween_completed(object, key):
 		scalingAnimation(finalScale, initialScale, anim_duration);
 		isScalingUp = false;
 
-func unlockAllLock():
+func toggleLock():
 	for i in locks.size():
 		var lock : Lock = get_node(locks[i]);
-		lock.unlock();
+		lock.toggle();
 	pass
 
 func scalingAnimation(scaleDown, scaleUp, seconds):

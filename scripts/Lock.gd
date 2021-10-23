@@ -5,20 +5,19 @@ onready var lockSprite = $Sprite;
 onready var tween   = $Tween;
 onready var collisionShape : CollisionShape2D = $CollisionShape2D;
 
+export var islocked : bool = true;
 export var anim_duration : float = 0.5;
 export var lockColor : Color = Color.white;
 export var unlockColor : Color = Color.white;
 
-var islocked : bool = false;
 
 func _ready():
-	lock();
-	pass # Replace with function body.
+	if(islocked):
+		lock();
+	elif(!islocked):
+		unlock();
 
 func unlock():
-	if(!islocked):
-		return;
-	
 	islocked = false;
 	collisionShape.set_deferred("disabled", true);
 	switchColor(lockColor, unlockColor, anim_duration);
@@ -35,6 +34,11 @@ func switchColor(aColor, bColor, seconds):
 	tween.start()
 	pass
 
+func toggle():
+	if(!islocked):
+		lock();
+	elif(islocked):
+		unlock();
 
 func _on_Lock_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.is_in_group("Player") and islocked:

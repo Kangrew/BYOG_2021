@@ -64,6 +64,7 @@ func change_dir() -> void:
 	if is_player_ready:
 		if( beats_left == 0):
 			die();
+			tween.interpolate_callback(self, reset_duration, "change_dir");
 			return;
 		beats_left -= 1;
 		beats.get_child(beats_left).visible = false;

@@ -48,6 +48,4 @@ texture = ExtResource( 4 )
 position = Vector2( 128, 0 )
 texture = ExtResource( 4 )
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Camera2D",
+"class": "MainCamera",
+"language": "GDScript",
+"path": "res://scripts/MainCamera.gd"
+}, {
+"base": "Sprite",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/Player.gd"
+} ]
+_global_script_class_icons={
+"MainCamera": "",
+"Player": ""
+}
+
 [application]
 
 config/name="BYOG 2021"

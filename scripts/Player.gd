@@ -8,6 +8,7 @@ export var arrow_min_rot : float = 90.0;
 export var arrow_max_pop_scale : Vector2 = Vector2(1.2, 1.2);
 export var arrow_rot_duration : float = 0.5;
 export var death_particles_path : NodePath;
+export var main_cam_path : NodePath;
 
 var is_player_ready = false;
 var current_dir = directions.RIGHT;
@@ -17,6 +18,7 @@ var beats_left = 4
 var die_aim_duration : float = 0.5;
 
 onready var death_particles : CPUParticles2D = get_node(death_particles_path);
+onready var main_cam : MainCamera = get_node(main_cam_path);
 onready var tween : Tween = $Tween;
 onready var arrow : Sprite = $Arrow;
 onready var beats : Node2D = $BeatsLeft;
@@ -69,6 +71,7 @@ func reset_beats() -> void:
 		beat.visible = true;
 
 func freeze() -> void:
+	
 	is_frozen = true;
 
 func push() -> void:

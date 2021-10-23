@@ -13,6 +13,7 @@ self_modulate = Color( 0.988235, 0.639216, 0.0666667, 1 )
 scale = Vector2( 0.9375, 0.9375 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
+arrow_rot_duration = 1.0
 
 [node name="Arrow" type="Sprite" parent="."]
 self_modulate = Color( 0.176471, 0.192157, 0.223529, 1 )
@@ -46,5 +47,7 @@ texture = ExtResource( 4 )
 [node name="Beat_4" type="Sprite" parent="BeatsLeft"]
 position = Vector2( 128, 0 )
 texture = ExtResource( 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

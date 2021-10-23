@@ -14,10 +14,13 @@ func _ready():
 func load_level() -> void:
 	if get_child_count() > 0:
 		get_child(0).queue_free();
+		next_lev_index+=1;
 	
 	var ins = levels[next_lev_index].instance();
-	add_child(ins);
-	current_lev = ins;
-	
-	player.global_position = current_lev.start_pos.global_position;
+	player.direction_vector = Vector2.ZERO;
+	self.call_deferred("set_child", ins);
 
+func set_child(ins):
+	self.add_child(ins);
+	current_lev = ins;
+	player.global_position = current_lev.start_pos.global_position;

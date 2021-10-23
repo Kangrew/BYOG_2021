@@ -43,5 +43,4 @@ func unlockAllLock():
 func scalingAnimation(scaleDown, scaleUp, seconds):
 	tween.interpolate_property(keySprite, "scale", Vector2(scaleDown,scaleDown), Vector2(scaleUp,scaleUp), seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT);
 	tween.start()
-	
 	pass

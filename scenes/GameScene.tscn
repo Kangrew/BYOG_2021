@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prefabs_Block/Block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/prefab_Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/MainCamera.gd" type="Script" id=3]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="MainCamera" type="Camera2D" parent="Game"]
+position = Vector2( 840, -540 )
+current = true
+script = ExtResource( 3 )
+player_path = NodePath("../Player")
+
+[node name="Player" parent="Game" instance=ExtResource( 2 )]
+position = Vector2( 540, -480 )
+player_speed = 1000.0
+
+[node name="Blockout" type="Node2D" parent="Game"]
+modulate = Color( 0.866667, 0.25098, 0.227451, 1 )
+
+[node name="Level 1" type="Node2D" parent="Game/Blockout"]
+
+[node name="Block_3" parent="Game/Blockout/Level 1" instance=ExtResource( 1 )]
+position = Vector2( 840, -420 )
+scale = Vector2( 4, 17 )
+
+[node name="Block_5" parent="Game/Blockout/Level 1" instance=ExtResource( 1 )]
+position = Vector2( 1380, -960 )
+scale = Vector2( 4, 17 )
+
+[node name="Block_4" parent="Game/Blockout/Level 1" instance=ExtResource( 1 )]
+position = Vector2( 840, 900 )
+scale = Vector2( 4, 17 )
+
+[node name="Block_6" parent="Game/Blockout/Level 1" instance=ExtResource( 1 )]
+position = Vector2( 1380, 360 )
+scale = Vector2( 4, 17 )
+
+[node name="Block_1" parent="Game/Blockout/Level 1" instance=ExtResource( 1 )]
+position = Vector2( -960, 660 )
+scale = Vector2( 22, 40 )

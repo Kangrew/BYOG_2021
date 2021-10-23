@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet_blockoutAtlas-1920-960.png-0b154b46a1c8c690eb9bab2195d637a6.stex"
+path="res://.import/spritesheet_blockoutAtlas-2880-960.png-76f80a939e93f2f266dfa7850dcd6d71.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheet_blockoutAtlas-1920-960.png"
-dest_files=[ "res://.import/spritesheet_blockoutAtlas-1920-960.png-0b154b46a1c8c690eb9bab2195d637a6.stex" ]
+source_file="res://sprites/spritesheet_blockoutAtlas-2880-960.png"
+dest_files=[ "res://.import/spritesheet_blockoutAtlas-2880-960.png-76f80a939e93f2f266dfa7850dcd6d71.stex" ]
 
 [params]
 

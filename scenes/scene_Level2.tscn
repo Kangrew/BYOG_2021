@@ -14,7 +14,7 @@ position = Vector2( 480, -180 )
 [node name="TileMap" type="TileMap" parent="." groups=[
 "block",
 ]]
-modulate = Color( 0.890196, 0.396078, 0.356863, 1 )
+modulate = Color( 0.176471, 0.192157, 0.223529, 1 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 240, 240 )
 format = 1

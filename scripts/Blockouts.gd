@@ -20,6 +20,8 @@ func load_level() -> void:
 		next_lev_index+=1;
 	
 	var ins = levels[next_lev_index].instance();
+	player.reset_beats();
+	player.is_player_ready = false;
 	player.direction_vector = Vector2.ZERO;
 	self.call_deferred("set_child", ins);
 

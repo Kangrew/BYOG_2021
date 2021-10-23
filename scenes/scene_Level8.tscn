@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Prefab/Lock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefab/Key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefab/Blinker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/tileset_Blockout.tres" type="TileSet" id=4]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=5]
+[ext_resource path="res://scenes/prefab_Goal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefab/OneWay.tscn" type="PackedScene" id=7]
+
+[node name="Level 2" type="Node2D"]
+script = ExtResource( 5 )
+start_pos_path = NodePath("StartPos")
+node_to_reset = [ NodePath("Node2D/Lock"), NodePath("Node2D/Lock2"), NodePath("Node2D/Lock3"), NodePath("Node2D/Lock4"), NodePath("Node2D/OneWay"), NodePath("Node2D/OneWay2"), NodePath("Node2D/OneWay3"), NodePath("Node2D/OneWay4"), NodePath("Node2D/OneWay5"), NodePath("Node2D/OneWay6"), NodePath("Node2D/OneWay7") ]
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 480, -840 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"block",
+]]
+modulate = Color( 0.176471, 0.192157, 0.223529, 1 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 240, 240 )
+format = 1
+tile_data = PoolIntArray( -262147, 0, 131073, -262146, 0, 1, -262145, 0, 1, -327680, 0, 131081, -327679, 0, 131072, -327678, 0, 131072, -327677, 0, 131082, -327676, 0, 131072, -327675, 0, 131082, -327674, 0, 131072, -327673, 0, 131082, -327672, 0, 131072, -327671, 0, 131072, -327670, 0, 131072, -327669, 0, 131072, -327668, 0, 131072, -327667, 0, 131072, -327666, 0, 131072, -327665, 0, 131072, -327664, 0, 131072, -327663, 0, 8, -327662, 0, 131081, -327661, 0, 131072, -327660, 0, 131072, -327659, 0, 11, -196611, 0, 65537, -196610, 0, 65536, -196609, 0, 65536, -262144, 0, 2, -262141, 0, 196608, -262139, 0, 65539, -262137, 0, 196608, -262127, 0, 65537, -262126, 0, 2, -262123, 0, 196608, -131075, 0, 65537, -131074, 0, 65536, -131073, 0, 65536, -196608, 0, 2, -196605, 0, 65539, -196601, 0, 196608, -196599, 0, 4, -196597, 0, 0, -196595, 0, 4, -196593, 0, 0, -196591, 0, 196609, -196590, 0, 196610, -196587, 0, 196608, -65539, 0, 65537, -65538, 0, 65536, -65537, 0, 65536, -131072, 0, 2, -131067, 0, 4, -131065, 0, 65539, -131063, 0, 196608, -131059, 0, 196608, -131051, 0, 196608, -3, 0, 65537, -2, 0, 65536, -1, 0, 65536, -65536, 0, 2, -65533, 0, 4, -65531, 0, 196608, -65527, 0, 196608, -65523, 0, 131080, -65522, 0, 1, -65521, 0, 131074, -65519, 0, 131073, -65518, 0, 131074, -65515, 0, 196608, 65533, 0, 196609, 65534, 0, 65538, 65535, 0, 65538, 0, 0, 65545, 1, 0, 131072, 2, 0, 131072, 3, 0, 196619, 4, 0, 131072, 5, 0, 196619, 6, 0, 131072, 7, 0, 131072, 8, 0, 131072, 9, 0, 196619, 10, 0, 131072, 11, 0, 131072, 12, 0, 131072, 13, 0, 196616, 14, 0, 65538, 15, 0, 65545, 16, 0, 131072, 17, 0, 196616, 18, 0, 65545, 19, 0, 131072, 20, 0, 131072, 21, 0, 65547 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Lock" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 2520, -600 )
+islocked = false
+
+[node name="Lock2" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 3240, -840 )
+islocked = false
+
+[node name="Lock3" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 4200, -360 )
+
+[node name="Lock4" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 4440, -360 )
+
+[node name="Key" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( 2520, -120 )
+locks = [ NodePath("../Lock") ]
+
+[node name="Key2" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( 2520, -840 )
+locks = [ NodePath("../Lock2") ]
+
+[node name="Key3" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( 3480, -360 )
+locks = [ NodePath("../Lock3") ]
+
+[node name="Key4" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( 3960, -120 )
+locks = [ NodePath("../Lock4") ]
+
+[node name="Blinker" parent="Node2D" instance=ExtResource( 3 )]
+position = Vector2( 840, -360 )
+
+[node name="Blinker2" parent="Node2D" instance=ExtResource( 3 )]
+position = Vector2( 1320, -600 )
+
+[node name="Blinker3" parent="Node2D" instance=ExtResource( 3 )]
+position = Vector2( 1800, -120 )
+
+[node name="OneWay" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 2760, -840 )
+rotation = -1.5708
+
+[node name="OneWay2" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 2760, -360 )
+rotation = 1.5708
+
+[node name="OneWay3" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 2760, -120 )
+rotation = 1.5708
+
+[node name="OneWay4" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 2280, -840 )
+rotation = 1.5708
+
+[node name="OneWay5" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 3480, -600 )
+
+[node name="OneWay6" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 3960, -600 )
+rotation = 3.14159
+
+[node name="OneWay7" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 3720, -360 )
+rotation = 4.71239
+
+[node name="Goal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4800, -720 )

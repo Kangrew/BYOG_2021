@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_arrow-48-48.png-af60b46996962aac05382b3f5308a9ac.stex"
+path="res://.import/sprite_one_way-120-120.png-4b0c912be3a2c66a887d00b6782740ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite_arrow-48-48.png"
-dest_files=[ "res://.import/sprite_arrow-48-48.png-af60b46996962aac05382b3f5308a9ac.stex" ]
+source_file="res://sprites/sprite_one_way-120-120.png"
+dest_files=[ "res://.import/sprite_one_way-120-120.png-4b0c912be3a2c66a887d00b6782740ff.stex" ]
 
 [params]
 

@@ -12,7 +12,7 @@ extents = Vector2( 120, 120 )
 z_index = -1
 script = ExtResource( 2 )
 lockColor = Color( 0.890196, 0.396078, 0.356863, 1 )
-unlockColor = Color( 0.0313726, 0.494118, 0.545098, 1 )
+unlockColor = Color( 0.0313726, 0.572549, 0.647059, 0.0980392 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

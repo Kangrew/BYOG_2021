@@ -9,6 +9,7 @@ extents = Vector2( 120, 120 )
 [node name="Blinker" type="Area2D" groups=[
 "Block",
 ]]
+modulate = Color( 0.890196, 0.396078, 0.356863, 1 )
 script = ExtResource( 1 )
 wait_time = 2.0
 dissolve_time = 0.3

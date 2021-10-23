@@ -15,7 +15,7 @@ script = ExtResource( 3 )
 player_path = NodePath("../Player")
 
 [node name="Player" parent="Game" instance=ExtResource( 2 )]
-position = Vector2( 540, -480 )
+position = Vector2( 540, -540 )
 player_speed = 1000.0
 
 [node name="Blockout" type="Node2D" parent="Game"]

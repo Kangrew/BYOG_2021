@@ -6,10 +6,12 @@ onready var beats : Node2D = $BeatsLeft;
 
 enum directions {RIGHT, DOWN, LEFT, UP}
 
+var is_player_ready = false;
 var current_dir = directions.RIGHT;
 var direction_vector = Vector2.ZERO;
 var is_frozen = true;
 var beats_left = 4
+var die_aim_duration : float = 0.5;
 
 export var player_speed : float = 500;
 
@@ -30,6 +32,10 @@ func _unhandled_input(event) -> void:
 	elif event.is_action_released("push"):
 		push();
 
+func _on_Area2D_body_shape_entered(_body_id, body, _body_shape, _local_shape):
+	if body.is_in_group("block"):
+		die();
+
 func change_dir() -> void:
 	
 	current_dir += 1
@@ -41,12 +47,12 @@ func change_dir() -> void:
 	else:
 		tween.interpolate_property(arrow, "rotation_degrees", arrow.rotation_degrees, arrow.rotation_degrees + arrow_min_rot, arrow_rot_duration, Tween.TRANS_ELASTIC, Tween.EASE_OUT);
 	
-	if( beats_left == 0):
-		die();
-		return;
-	
-	beats_left -= 1;
-	beats.get_child(beats_left).visible = false;
+	if is_player_ready:
+		if( beats_left == 0):
+			die();
+			return;
+		beats_left -= 1;
+		beats.get_child(beats_left).visible = false;
 	
 	tween.interpolate_property(arrow, "scale", Vector2.ONE, arrow_max_pop_scale, arrow_rot_duration / 2, Tween.TRANS_EXPO, Tween.EASE_IN);
 	tween.interpolate_property(arrow, "scale", arrow_max_pop_scale, Vector2.ONE, arrow_rot_duration, Tween.TRANS_EXPO, Tween.EASE_IN, arrow_rot_duration / 2);
@@ -64,6 +70,7 @@ func freeze() -> void:
 	is_frozen = true;
 
 func push() -> void:
+	is_player_ready = true;
 	is_frozen = false;
 	
 	reset_beats()
@@ -78,9 +85,5 @@ func push() -> void:
 		direction_vector = Vector2(0.0, -1.0);
 
 func die() -> void:
-	get_tree().paused = true;
-
-
-func _on_Area2D_body_shape_entered(_body_id, body, _body_shape, _local_shape):
-	if body.is_in_group("block"):
-		die();
+	tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, die_aim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT);
+	direction_vector = Vector2.ZERO;

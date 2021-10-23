@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Prefab/Lock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefab/Key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefab/Blinker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/tileset_Blockout.tres" type="TileSet" id=4]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=5]
+[ext_resource path="res://scenes/prefab_Goal.tscn" type="PackedScene" id=6]
+
+[node name="Level 2" type="Node2D"]
+script = ExtResource( 5 )
+start_pos_path = NodePath("StartPos")
+node_to_reset = [ NodePath("Node2D/Lock"), NodePath("Node2D/Lock2") ]
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 480, -780 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"block",
+]]
+modulate = Color( 0.890196, 0.396078, 0.356863, 1 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 240, 240 )
+format = 1
+tile_data = PoolIntArray( -262147, 0, 131073, -262146, 0, 1, -262145, 0, 1, -327680, 0, 131081, -327679, 0, 131072, -327678, 0, 131072, -327677, 0, 131082, -327676, 0, 131072, -327675, 0, 131072, -327674, 0, 131072, -327673, 0, 131082, -327672, 0, 131072, -327671, 0, 131072, -327670, 0, 131072, -327669, 0, 131072, -327668, 0, 131072, -327667, 0, 8, -327666, 0, 1, -327665, 0, 1, -327664, 0, 131074, -196611, 0, 65537, -196610, 0, 65536, -196609, 0, 65536, -262144, 0, 2, -262141, 0, 196608, -262137, 0, 196608, -262131, 0, 65537, -262130, 0, 65536, -262129, 0, 65536, -262128, 0, 2, -131075, 0, 65537, -131074, 0, 65536, -131073, 0, 65536, -196608, 0, 2, -196605, 0, 65539, -196603, 0, 0, -196601, 0, 65539, -196599, 0, 131073, -196598, 0, 131074, -196595, 0, 65537, -196594, 0, 65536, -196593, 0, 65536, -196592, 0, 2, -65539, 0, 65537, -65538, 0, 65536, -65537, 0, 65536, -131072, 0, 2, -131063, 0, 65537, -131062, 0, 2, -131059, 0, 65537, -131058, 0, 65536, -131057, 0, 65536, -131056, 0, 2, -3, 0, 65537, -2, 0, 65536, -1, 0, 65536, -65536, 0, 2, -65533, 0, 4, -65531, 0, 4, -65529, 0, 4, -65527, 0, 65537, -65526, 0, 2, -65523, 0, 65537, -65522, 0, 65536, -65521, 0, 65536, -65520, 0, 2, 65533, 0, 196609, 65534, 0, 65538, 65535, 0, 65538, 0, 0, 65545, 1, 0, 131072, 2, 0, 131072, 3, 0, 196619, 4, 0, 131072, 5, 0, 196619, 6, 0, 131072, 7, 0, 196619, 8, 0, 131072, 9, 0, 196616, 10, 0, 65545, 11, 0, 131072, 12, 0, 131072, 13, 0, 196616, 14, 0, 65538, 15, 0, 65538, 16, 0, 196610 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Lock" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 1080, -600 )
+
+[node name="Lock2" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 1800, -360 )
+
+[node name="Key" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( 1320, -840 )
+locks = [ NodePath("../Lock"), NodePath("../Lock2") ]
+
+[node name="Blinker" parent="Node2D" instance=ExtResource( 3 )]
+position = Vector2( 840, -360 )
+
+[node name="Goal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2880, -240 )

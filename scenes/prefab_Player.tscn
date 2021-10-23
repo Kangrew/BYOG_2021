@@ -22,7 +22,9 @@ texture = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Player",
+]]
 position = Vector2( -64, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

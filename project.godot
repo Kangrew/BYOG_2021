@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scripts/Level.gd"
+}, {
+"base": "Area2D",
+"class": "Lock",
+"language": "GDScript",
+"path": "res://scripts/Lock.gd"
+}, {
 "base": "Camera2D",
 "class": "MainCamera",
 "language": "GDScript",
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://scripts/Player.gd"
 } ]
 _global_script_class_icons={
+"Level": "",
+"Lock": "",
 "MainCamera": "",
 "Player": ""
 }
@@ -31,6 +43,7 @@ run/main_scene="res://scenes/GameScene.tscn"
 
 [debug]
 
+gdscript/warnings/enable=false
 gdscript/warnings/return_value_discarded=false
 
 [display]

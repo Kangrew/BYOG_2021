@@ -25,9 +25,6 @@ func unlock():
 	pass
 
 func lock():
-	if(islocked):
-		return;
-	
 	islocked = true;
 	collisionShape.set_deferred("disabled", false);
 	switchColor(unlockColor,lockColor,anim_duration);

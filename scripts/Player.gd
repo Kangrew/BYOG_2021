@@ -9,19 +9,28 @@ export var arrow_max_pop_scale : Vector2 = Vector2(1.2, 1.2);
 export var arrow_rot_duration : float = 0.5;
 export var death_particles_path : NodePath;
 export var main_cam_path : NodePath;
+export var blockout_path : NodePath;
+export var die_anim_duration : float = 0.5;
+export var reset_duration : float = 1;
+export var cam_zoom : Vector2 = Vector2.ONE;
+export var cam_zoom_duration_in : float = 0.5;
+export var cam_zoom_duration_out : float = 0.2;
 
 var is_player_ready = false;
 var current_dir = directions.RIGHT;
 var direction_vector = Vector2.ZERO;
 var is_frozen = true;
 var beats_left = 4
-var die_aim_duration : float = 0.5;
+var is_dead : bool = false;
+var zoom_tween;
 
 onready var death_particles : CPUParticles2D = get_node(death_particles_path);
 onready var main_cam : MainCamera = get_node(main_cam_path);
+onready var blockout : Blockouts = get_node(blockout_path);
 onready var tween : Tween = $Tween;
 onready var arrow : Sprite = $Arrow;
 onready var beats : Node2D = $BeatsLeft;
+onready var area_shape : CollisionShape2D = $Area2D/CollisionShape2D;
 
 func _ready():
 	change_dir();
@@ -31,10 +40,11 @@ func _process(delta) -> void:
 		position += direction_vector * player_speed * delta;
 
 func _unhandled_input(event) -> void:
-	if event.is_action_pressed("push"):
-		freeze();
-	elif event.is_action_released("push"):
-		push();
+	if !is_dead:
+		if event.is_action_pressed("push"):
+			freeze();
+		elif event.is_action_released("push"):
+			push();
 
 func _on_Area2D_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if body.is_in_group("block"):
@@ -71,12 +81,16 @@ func reset_beats() -> void:
 		beat.visible = true;
 
 func freeze() -> void:
-	
+	tween.interpolate_property(main_cam, "zoom", Vector2.ONE, cam_zoom, cam_zoom_duration_in, Tween.TRANS_EXPO, Tween.EASE_OUT);
 	is_frozen = true;
+	tween.start();
 
 func push() -> void:
+	tween.stop(main_cam);
+	tween.interpolate_property(main_cam, "zoom", main_cam.zoom, Vector2.ONE, cam_zoom_duration_out, Tween.TRANS_EXPO, Tween.EASE_OUT);
 	is_player_ready = true;
 	is_frozen = false;
+	tween.start();
 	
 	reset_beats()
 	
@@ -90,8 +104,20 @@ func push() -> void:
 		direction_vector = Vector2(0.0, -1.0);
 
 func die() -> void:
+	is_dead = true;
 	death_particles.global_position = global_position;
 	death_particles.emitting = true;
-	tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, die_aim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT);
+	tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, die_anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT);
+	tween.interpolate_property(main_cam, "global_position", main_cam.global_position, Vector2(blockout.current_lev.start_pos.global_position.x + main_cam.pos_x_offset, main_cam.global_position.y), reset_duration / 2, Tween.TRANS_ELASTIC, Tween.EASE_OUT);
 	direction_vector = Vector2.ZERO;
+	
+	tween.interpolate_callback(self, reset_duration / 2, "reset");
+	tween.start();
+
+func reset() -> void:
+	is_dead = false;
+	is_player_ready = false;
+	reset_beats();
+	global_position = blockout.current_lev.start_pos.global_position;
+	tween.interpolate_property(self, "scale", Vector2.ZERO, Vector2.ONE, reset_duration / 2, Tween.TRANS_EXPO, Tween.EASE_OUT);
 	tween.start();

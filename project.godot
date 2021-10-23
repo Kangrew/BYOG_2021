@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Blockouts",
+"language": "GDScript",
+"path": "res://scripts/Blockouts.gd"
+}, {
+"base": "Node2D",
 "class": "Level",
 "language": "GDScript",
 "path": "res://scripts/Level.gd"
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Player.gd"
 } ]
 _global_script_class_icons={
+"Blockouts": "",
 "Level": "",
 "Lock": "",
 "MainCamera": "",

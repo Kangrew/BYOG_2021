@@ -10,11 +10,19 @@ export var anim_duration : float = 0.5;
 export var lockColor : Color = Color.white;
 export var unlockColor : Color = Color.white;
 
+var intialLockValue: bool = false;
 
 func _ready():
+	intialLockValue = islocked;
 	if(islocked):
 		lock();
 	elif(!islocked):
+		unlock();
+
+func reset():
+	if(intialLockValue):
+		lock();
+	elif(!intialLockValue):
 		unlock();
 
 func unlock():

@@ -114,6 +114,7 @@ func die() -> void:
 	
 	tween.interpolate_callback(self, reset_duration / 2, "reset");
 	tween.start();
+	blockout.reset_current_level();
 
 func reset() -> void:
 	is_dead = false;

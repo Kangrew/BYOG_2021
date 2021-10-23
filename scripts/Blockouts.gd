@@ -11,6 +11,9 @@ onready var current_lev : Level;
 func _ready():
 	load_level();
 
+func reset_current_level():
+	current_lev.reset();
+
 func load_level() -> void:
 	if get_child_count() > 0:
 		get_child(0).queue_free();

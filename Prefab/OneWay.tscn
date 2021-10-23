@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/OneWay.gd" type="Script" id=1]
+[ext_resource path="res://sprites/sprite_one_way-120-120.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 120, 120 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 120, 21.0524 )
+
+[node name="OneWay" type="Area2D" groups=[
+"Block",
+]]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Entry" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
+position = Vector2( 0, 120 )
+shape = SubResource( 2 )
+
+[connection signal="area_shape_entered" from="." to="." method="_on_OneWay_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_OneWay_area_shape_exited"]
+[connection signal="area_shape_entered" from="Entry" to="." method="_on_Entry_area_shape_entered"]
+[connection signal="area_shape_exited" from="Entry" to="." method="_on_Entry_area_shape_exited"]

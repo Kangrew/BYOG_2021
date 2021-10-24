@@ -2,9 +2,12 @@ extends Node2D
 class_name Blockouts
 
 export var player_path : NodePath;
+export var audio_manager_path : NodePath;
 export var levels : Array;
 
 onready var player : Sprite = get_node(player_path);
+onready var audio_manager : AudioManager = get_node(audio_manager_path);
+
 onready var next_lev_index : int = 0;
 onready var current_lev : Level;
 
@@ -14,7 +17,12 @@ func _ready():
 func reset_current_level():
 	current_lev.reset();
 
+func on_player_death():
+	audio_manager.PlayDeathSFX();
+
 func load_level() -> void:
+	audio_manager.PlayGoalSFX();
+	
 	if get_child_count() > 0:
 		get_child(0).queue_free();
 		next_lev_index+=1;

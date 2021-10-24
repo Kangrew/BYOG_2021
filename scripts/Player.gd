@@ -106,6 +106,7 @@ func push() -> void:
 
 func die() -> void:
 	is_dead = true;
+	blockout.on_player_death();
 	death_particles.global_position = global_position;
 	death_particles.emitting = true;
 	tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, die_anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT);

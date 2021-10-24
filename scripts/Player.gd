@@ -55,7 +55,7 @@ func _on_Area2D_area_shape_entered(area_id, body, area_shape, local_shape):
 	if body.is_in_group("Key"):
 		blockout.keySFX();
 		
-	if body.is_in_group("Block"):
+	if body.is_in_group("OneWay"):
 		if(body.CheckTicket() == true):
 			blockout.blockSFX();
 

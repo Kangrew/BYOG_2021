@@ -11,6 +11,7 @@ extents = Vector2( 120, 21.0524 )
 
 [node name="OneWay" type="Area2D" groups=[
 "Block",
+"OneWay",
 ]]
 script = ExtResource( 1 )
 

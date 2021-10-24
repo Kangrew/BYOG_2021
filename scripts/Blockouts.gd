@@ -28,6 +28,12 @@ func reset_current_level():
 func on_player_death():
 	audio_manager.PlayDeathSFX();
 
+func blockSFX():
+	audio_manager.PlayZoopSFX();
+
+func keySFX():
+	audio_manager.PlayKeySFX();
+
 func load_level() -> void:
 	audio_manager.PlayGoalSFX();
 	

@@ -49,6 +49,15 @@ func _unhandled_input(event) -> void:
 func _on_Area2D_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if body.is_in_group("block"):
 		die();
+		
+
+func _on_Area2D_area_shape_entered(area_id, body, area_shape, local_shape):
+	if body.is_in_group("Key"):
+		blockout.keySFX();
+		
+	if body.is_in_group("Block"):
+		if(body.CheckTicket() == true):
+			blockout.blockSFX();
 
 func change_dir() -> void:
 	
@@ -106,6 +115,7 @@ func push() -> void:
 
 func die() -> void:
 	is_dead = true;
+	blockout.on_player_death();
 	death_particles.global_position = global_position;
 	death_particles.emitting = true;
 	tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, die_anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT);

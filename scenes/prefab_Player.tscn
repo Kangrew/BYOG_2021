@@ -55,4 +55,5 @@ position = Vector2( 68.2667, -119.467 )
 scale = Vector2( 2.27556, 0.568889 )
 texture = ExtResource( 4 )
 
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

@@ -13,6 +13,9 @@ func reset():
 	HasTicket = false;
 	pass
 
+func CheckTicket():
+	return HasTicket;
+
 func _on_OneWay_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.is_in_group("Player") and !HasTicket:
 		var player : Player = area.get_parent();

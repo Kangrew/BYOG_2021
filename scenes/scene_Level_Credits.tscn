@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/tileset_Blockout.tres" type="TileSet" id=4]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=5]
+[ext_resource path="res://resources/level_font.tres" type="DynamicFont" id=8]
+
+[node name="Level 2" type="Node2D"]
+script = ExtResource( 5 )
+start_pos_path = NodePath("StartPos")
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 660, -480 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"block",
+]]
+modulate = Color( 0.176471, 0.192157, 0.223529, 1 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 240, 240 )
+format = 1
+tile_data = PoolIntArray( -262147, 0, 131073, -262146, 0, 1, -262145, 0, 1, -327680, 0, 131081, -327679, 0, 131072, -327678, 0, 131072, -327677, 0, 131072, -327676, 0, 131072, -327675, 0, 131072, -327674, 0, 131072, -327673, 0, 131072, -327672, 0, 131072, -327671, 0, 131072, -327670, 0, 131072, -327669, 0, 131072, -327668, 0, 131072, -327667, 0, 131072, -327666, 0, 131072, -327665, 0, 131072, -327664, 0, 131072, -327663, 0, 131072, -327662, 0, 131072, -327661, 0, 131072, -327660, 0, 131072, -327659, 0, 131072, -327658, 0, 131072, -327657, 0, 131072, -327656, 0, 131072, -327655, 0, 131072, -327654, 0, 131072, -327653, 0, 131072, -327652, 0, 8, -327651, 0, 1, -327650, 0, 1, -327649, 0, 131074, -196611, 0, 65537, -196610, 0, 65536, -196609, 0, 65536, -262144, 0, 2, -262116, 0, 65537, -262115, 0, 65536, -262114, 0, 65536, -262113, 0, 2, -131075, 0, 65537, -131074, 0, 65536, -131073, 0, 65536, -196608, 0, 2, -196580, 0, 65537, -196579, 0, 65536, -196578, 0, 65536, -196577, 0, 2, -65539, 0, 65537, -65538, 0, 65536, -65537, 0, 65536, -131072, 0, 2, -131044, 0, 65537, -131043, 0, 65536, -131042, 0, 65536, -131041, 0, 2, -3, 0, 65537, -2, 0, 65536, -1, 0, 65536, -65536, 0, 2, -65508, 0, 65537, -65507, 0, 65536, -65506, 0, 65536, -65505, 0, 2, 65533, 0, 196609, 65534, 0, 65538, 65535, 0, 65538, 0, 0, 65545, 1, 0, 131072, 2, 0, 131072, 3, 0, 131072, 4, 0, 131072, 5, 0, 131072, 6, 0, 131072, 7, 0, 131072, 8, 0, 131072, 9, 0, 131072, 10, 0, 131072, 11, 0, 131072, 12, 0, 131072, 13, 0, 131072, 14, 0, 131072, 15, 0, 131072, 16, 0, 131072, 17, 0, 131072, 18, 0, 131072, 19, 0, 131072, 20, 0, 131072, 21, 0, 131072, 22, 0, 131072, 23, 0, 131072, 24, 0, 131072, 25, 0, 131072, 26, 0, 131072, 27, 0, 131072, 28, 0, 196616, 29, 0, 65538, 30, 0, 65538, 31, 0, 196610 )
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Text"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_left = 720.0
+margin_top = -660.0
+margin_right = 1500.0
+margin_bottom = -300.0
+custom_fonts/font = ExtResource( 8 )
+text = "Credits :"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Text"]
+self_modulate = Color( 0.890196, 0.396078, 0.356863, 1 )
+margin_left = 1740.0
+margin_top = -720.0
+margin_right = 3300.0
+margin_bottom = -240.0
+custom_fonts/font = ExtResource( 8 )
+text = "ANDREW DAVID 
+a.k.a 
+Kangrew"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Text"]
+self_modulate = Color( 0.443137, 0.968627, 0.623529, 1 )
+margin_left = 3360.0
+margin_top = -720.0
+margin_right = 4920.0
+margin_bottom = -240.0
+custom_fonts/font = ExtResource( 8 )
+text = "JERRIN THOMAS
+a.k.a 
+JD Christo"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Text"]
+self_modulate = Color( 0.0313726, 0.572549, 0.647059, 1 )
+margin_left = 4980.0
+margin_top = -720.0
+margin_right = 6540.0
+margin_bottom = -240.0
+custom_fonts/font = ExtResource( 8 )
+text = "SURAJ KISPOTTA
+a.k.a 
+LG TV"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

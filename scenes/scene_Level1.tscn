@@ -6,6 +6,7 @@
 [ext_resource path="res://resources/level_font.tres" type="DynamicFont" id=4]
 
 [node name="Level 1" type="Node2D"]
+position = Vector2( -887.987, -36.9995 )
 script = ExtResource( 3 )
 start_pos_path = NodePath("StartPos")
 

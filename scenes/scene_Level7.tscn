@@ -59,11 +59,12 @@ z_index = -2
 
 [node name="Label" type="Label" parent="Text"]
 self_modulate = Color( 1, 1, 1, 0.27451 )
-margin_left = 1740.0
+margin_left = 1860.0
 margin_top = -240.0
-margin_right = 2820.0
+margin_right = 2940.0
 custom_fonts/font = ExtResource( 8 )
-text = "Text here"
+text = "what goes up,
+must come down"
 align = 1
 valign = 1
 __meta__ = {

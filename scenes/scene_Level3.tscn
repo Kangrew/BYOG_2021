@@ -41,12 +41,12 @@ z_index = -2
 
 [node name="Label" type="Label" parent="Node2D"]
 self_modulate = Color( 1, 1, 1, 0.27451 )
-margin_left = 360.0
-margin_top = -480.0
-margin_right = 1320.0
-margin_bottom = -300.0
+margin_left = 2400.0
+margin_top = -660.0
+margin_right = 3360.0
+margin_bottom = -480.0
 custom_fonts/font = ExtResource( 5 )
-text = "Text here"
+text = "sheessssssh"
 align = 1
 valign = 1
 __meta__ = {

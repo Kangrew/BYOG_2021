@@ -50,8 +50,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="BYOG 2021"
+config/name="BOX BOIII GOES BBRRRRRR!"
+config/description="A game submission for BYOG 2021"
 run/main_scene="res://scenes/GameScene.tscn"
+run/disable_stdout=true
+run/disable_stderr=true
+config/icon="res://sprites/icon.png"
+config/windows_native_icon="res://sprites/icon.ico"
 
 [debug]
 

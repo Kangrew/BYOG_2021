@@ -6,6 +6,7 @@ onready var deathsfx : AudioStreamPlayer = $DeathSFX;
 onready var finishfx : AudioStreamPlayer = $FinishSFX;
 onready var keySfx : AudioStreamPlayer = $KeySFX;
 onready var zoopfx : AudioStreamPlayer = $ZoopSFX;
+onready var beatfx : AudioStreamPlayer = $BeatSFX;
 
 func _ready():
 	deathsfx.stop();
@@ -23,6 +24,9 @@ func PlayKeySFX():
 	
 func PlayZoopSFX():
 	zoopfx.play();
+
+func PlayBeatSFX():
+	beatfx.play();
 
 func StopBGM():
 	bgm.stop();

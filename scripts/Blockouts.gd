@@ -26,16 +26,24 @@ func reset_current_level():
 	current_lev.reset();
 
 func on_player_death():
-	audio_manager.PlayDeathSFX();
+	if(audio_manager != null):
+		audio_manager.PlayDeathSFX();
 
 func blockSFX():
-	audio_manager.PlayZoopSFX();
+	if(audio_manager != null):
+		audio_manager.PlayZoopSFX();
 
 func keySFX():
-	audio_manager.PlayKeySFX();
+	if(audio_manager != null):
+		audio_manager.PlayKeySFX();
 
+func beatSFX():
+	if(audio_manager != null):
+		audio_manager.PlayBeatSFX();
+	
 func load_level() -> void:
-	audio_manager.PlayGoalSFX();
+	if(audio_manager != null):
+		audio_manager.PlayGoalSFX();
 	
 	if get_child_count() > 0:
 		get_child(0).queue_free();

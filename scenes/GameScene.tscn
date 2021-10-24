@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/scene_Level2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/prefab_Player.tscn" type="PackedScene" id=2]
@@ -16,9 +16,12 @@
 [ext_resource path="res://audio/test_2.mp3" type="AudioStream" id=14]
 [ext_resource path="res://scripts/AudioManager.gd" type="Script" id=15]
 [ext_resource path="res://audio/11._Strip_candy_appear_sound.wav" type="AudioStream" id=16]
-[ext_resource path="res://audio/12._Admin_card_done.wav" type="AudioStream" id=17]
+[ext_resource path="res://audio/Burrr.wav" type="AudioStream" id=17]
 [ext_resource path="res://sprites/sprite_blackscreen.png" type="Texture" id=18]
 [ext_resource path="res://scenes/scene_Level_Credits.tscn" type="PackedScene" id=19]
+[ext_resource path="res://audio/Zoop.wav" type="AudioStream" id=20]
+[ext_resource path="res://audio/Shik_shik.wav" type="AudioStream" id=21]
+[ext_resource path="res://audio/Beat.wav" type="AudioStream" id=22]
 
 [node name="GameScene" type="Node2D"]
 
@@ -54,10 +57,24 @@ volume_db = -1.0
 [node name="DeathSFX" type="AudioStreamPlayer" parent="Game/AudioManager"]
 pause_mode = 2
 stream = ExtResource( 17 )
+volume_db = 5.0
 
 [node name="FinishSFX" type="AudioStreamPlayer" parent="Game/AudioManager"]
 pause_mode = 2
 stream = ExtResource( 16 )
+
+[node name="KeySFX" type="AudioStreamPlayer" parent="Game/AudioManager"]
+pause_mode = 2
+stream = ExtResource( 21 )
+
+[node name="ZoopSFX" type="AudioStreamPlayer" parent="Game/AudioManager"]
+pause_mode = 2
+stream = ExtResource( 20 )
+
+[node name="BeatSFX" type="AudioStreamPlayer" parent="Game/AudioManager"]
+pause_mode = 2
+stream = ExtResource( 22 )
+volume_db = -20.0
 
 [node name="Blockout" type="Node2D" parent="Game"]
 z_index = -1

@@ -83,6 +83,7 @@ func change_dir() -> void:
 	
 	tween.interpolate_callback(self, arrow_rot_duration, "change_dir");
 	
+	blockout.beatSFX();
 	tween.start();
 
 func reset_beats() -> void:

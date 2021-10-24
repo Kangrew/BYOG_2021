@@ -11,3 +11,7 @@ func reset():
 		var r = get_node(node_to_reset[i]);
 		r.reset();
 	pass
+
+func cur_level_completed():
+	get_parent().load_level();
+	pass

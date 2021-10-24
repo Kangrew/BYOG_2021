@@ -12,7 +12,7 @@
 [node name="Level 2" type="Node2D"]
 script = ExtResource( 5 )
 start_pos_path = NodePath("StartPos")
-node_to_reset = [ NodePath("Node2D/Lock"), NodePath("Node2D/Lock2"), NodePath("Node2D/Lock3"), NodePath("Node2D/Lock4"), NodePath("Node2D/OneWay"), NodePath("Node2D/OneWay2"), NodePath("Node2D/OneWay3"), NodePath("Node2D/OneWay4"), NodePath("Node2D/OneWay5"), NodePath("Node2D/OneWay6"), NodePath("Node2D/OneWay7") ]
+node_to_reset = [ NodePath("Node2D/Lock"), NodePath("Node2D/Lock2"), NodePath("Node2D/Lock3"), NodePath("Node2D/Lock4"), NodePath("Node2D/OneWay"), NodePath("Node2D/OneWay2"), NodePath("Node2D/OneWay3"), NodePath("Node2D/OneWay4"), NodePath("Node2D/OneWay5"), NodePath("Node2D/OneWay6"), NodePath("Node2D/OneWay7"), NodePath("Node2D/OneWay8") ]
 
 [node name="StartPos" type="Position2D" parent="."]
 position = Vector2( 480, -840 )
@@ -29,7 +29,7 @@ tile_data = PoolIntArray( -262147, 0, 131073, -262146, 0, 1, -262145, 0, 1, -327
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Lock" parent="Node2D" instance=ExtResource( 1 )]
-position = Vector2( 2520, -600 )
+position = Vector2( 2520, -360 )
 islocked = false
 
 [node name="Lock2" parent="Node2D" instance=ExtResource( 1 )]
@@ -43,7 +43,7 @@ position = Vector2( 4200, -360 )
 position = Vector2( 4440, -360 )
 
 [node name="Key" parent="Node2D" instance=ExtResource( 2 )]
-position = Vector2( 2520, -120 )
+position = Vector2( 3000, -360 )
 locks = [ NodePath("../Lock") ]
 
 [node name="Key2" parent="Node2D" instance=ExtResource( 2 )]
@@ -93,6 +93,10 @@ rotation = 3.14159
 [node name="OneWay7" parent="Node2D" instance=ExtResource( 7 )]
 position = Vector2( 3720, -360 )
 rotation = 4.71239
+
+[node name="OneWay8" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 2520, -600 )
+rotation = -3.14159
 
 [node name="Goal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 4800, -720 )

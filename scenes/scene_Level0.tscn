@@ -31,7 +31,7 @@ tile_data = PoolIntArray( -262147, 0, 131073, -262146, 0, 1, -262145, 0, 1, -327
 z_index = -2
 
 [node name="Label" type="Label" parent="Node2D"]
-self_modulate = Color( 0.352941, 0.392157, 0.447059, 1 )
+self_modulate = Color( 1, 1, 1, 0.27451 )
 margin_left = 240.0
 margin_top = -300.0
 margin_right = 1629.0
@@ -47,7 +47,7 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="Node2D"]
-self_modulate = Color( 0.352941, 0.392157, 0.447059, 1 )
+self_modulate = Color( 1, 1, 1, 0.27451 )
 margin_left = 420.0
 margin_top = -900.0
 margin_right = 1512.0

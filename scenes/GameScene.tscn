@@ -31,8 +31,8 @@ player_path = NodePath("../Player")
 [node name="Player" parent="Game" instance=ExtResource( 2 )]
 position = Vector2( 480, -360 )
 scale = Vector2( 1, 1 )
-player_speed = 1000.0
 arrow_rot_duration = 0.75
+player_speed = 1000.0
 death_particles_path = NodePath("../CPUParticles2D")
 main_cam_path = NodePath("../MainCamera")
 blockout_path = NodePath("../Blockout")
